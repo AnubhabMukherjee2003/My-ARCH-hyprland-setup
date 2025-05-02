@@ -1,0 +1,166 @@
+# Starship Prompt Configuration - Cleaned & Commented
+
+# Schema for validation (optional)
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Main prompt format
+format = """
+[](surface0)\
+$os\
+$username\
+[](bg:white fg:surface0)\
+$directory\
+[](fg:white bg:aqua)\
+$git_branch\
+$git_status\
+[](fg:aqua bg:aqua)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:aqua bg:blue)\
+$docker_context\
+[](fg:blue bg:white)\
+$time\
+[ ](fg:white)\
+$line_break$character"""
+
+# Use custom palette
+palette = 'custom_bwbar'
+
+# Custom color palette (minimal, with correct color names)
+[palettes.custom_bwbar]
+white     = "#ffffff"
+aqua      = "#00ffff"
+blue      = "#1e90ff"
+mantle    = "#000000"
+surface0  = "#000000"
+peach     = "#ffffff"
+teal      = "#00ffff"
+green     = "#00ffff"
+red       = "#ff0000"
+purple    = "#000080"
+color_bg3 = "#000080"
+text      = "#ffffff"
+
+# OS module
+[os]
+disabled = false
+style = "bg:surface0 fg:text"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+Macos = ""
+Manjaro = ""
+Linux = "󰌽"
+Arch = "󰣇"
+Debian = "󰣚"
+
+# Username module
+[username]
+show_always = true
+style_user = "bg:surface0 fg:text"
+style_root = "bg:surface0 fg:text"
+format = '[ $user ]($style)'
+
+# Directory module
+[directory]
+style = "fg:mantle bg:peach"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+# Git modules
+[git_branch]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol $branch ](fg:mantle bg:green)]($style)'
+
+[git_status]
+style = "bg:teal"
+format = '[[($all_status$ahead_behind )](fg:mantle bg:green)]($style)'
+
+# Language modules (all use teal/aqua)
+[nodejs]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:mantle bg:teal)]($style)'
+
+[c]
+symbol = " "
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:mantle bg:teal)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:mantle bg:teal)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:mantle bg:teal)]($style)'
+
+[php]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:mantle bg:teal)]($style)'
+
+[java]
+symbol = " "
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:mantle bg:teal)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:mantle bg:teal)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:mantle bg:teal)]($style)'
+
+[python]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:mantle bg:teal)]($style)'
+
+# Docker context
+[docker_context]
+symbol = ""
+style = "bg:mantle"
+format = '[[ $symbol( $context) ](fg:white bg:color_bg3)]($style)'
+
+# Time module
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:white fg:mantle"
+format = '[  $time ]($style)'
+
+# Line break and character
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:green)'
+error_symbol = '[](bold fg:red)'
+vimcmd_symbol = '[](bold fg:green)'
+vimcmd_replace_one_symbol = '[](bold fg:purple)'
+vimcmd_replace_symbol = '[](bold fg:purple)'
+vimcmd_visual_symbol = '[](bold fg:blue)'
