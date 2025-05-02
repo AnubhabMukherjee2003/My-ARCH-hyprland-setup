@@ -11,21 +11,24 @@ This repository contains all my personal configuration files (dotfiles) It’s l
 ## Features
 
 - **Minimalistic Design:** No bloat, just a clean and simple interface.
+- **Wallpapers:** `hyprpaper` keeps your desktop looking sharp with custom wallpapers.
+![Home Screen](pictures/homeScreen.png)
+- **Terminal Emulator:** `kitty` delivers a fast, GPU-accelerated terminal experience.
+- **Prompt:** `starship` gives you a blazing-fast, customizable shell prompt.
+![Kitty Terminal](pictures/kitty.png)
+- **Status Bar:** `waybar` shows system info like time, battery, and network.
+  ![Waybar](pictures/waybar.png)
+- **Menu Launcher:** `wofi` offers a lightweight, Wayland-friendly app launcher.
+  ![Wofi](pictures/wofi.png)
 - **Screenshot Feature:** Capture windows or regions effortlessly with `hyprshot`.
 - **Lockscreen:** Secure your system with `hyprlock`, showing the password field only when you type.
 - **Idle Management:** `hypridle` locks your screen after inactivity.
-- **Wallpapers:** `hyprpaper` keeps your desktop looking sharp with custom wallpapers.
-- **Terminal Emulator:** `kitty` delivers a fast, GPU-accelerated terminal experience.
-- **Menu Launcher:** `wofi` offers a lightweight, Wayland-friendly app launcher.
-- **Status Bar:** `waybar` shows system info like time, battery, and network.
-- **Prompt:** `starship` gives you a blazing-fast, customizable shell prompt.
-
 ---
 ## Prerequisites
 
 Before installing, ensure you have the following. Don’t worry, it’s not as scary as it sounds (unless you’re terrified of penguins):
 - **Arch Linux (or derivative):**  
-    You’re on Arch, right? If not, this is your golden ticket to the "I use Arch, BTW" club. Derivatives like Manjaro or EndeavourOS are fine too, but real Arch users might judge you quietly.
+    You’re on Arch, right? If not, this is your golden ticket to the "I use Arch, BTW" club. Derivatives like EndeavourOS or Manjaro are fine too, but real Arch users might judge you quietly.
 
 - **sudo privileges:**  
 You’ll need to wield root powers. No sudo? Time to set it up—unless you love typing su like it’s 1999.
@@ -117,6 +120,7 @@ pkill waybar && waybar &
 
 - **Shell:**  
   `~/.bashrc` – Bash prompt  
+  or
   `~/.zshrc` – Zsh prompt
 
 - **Starship Prompt:**  
