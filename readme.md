@@ -1,131 +1,177 @@
-## Overview
+# My Arch Linux Hyprland Setup
 
-This repository, **`https://github.com/AnubhabMukherjee2003/My-ARCH-hyprland-setup`**, contains all of my personal configuration (“dotfiles”) for an Arch Linux environment powered by Hyprland. It includes:
+Welcome to my Arch Linux setup, with Hypr Ecosystem and Waybar
 
-- Shell configs (`.bashrc`, `.zshrc`)  
-- Starship prompt (`starship.toml`)  
-- Hyprland session (`hyprland.conf`, `hypridle.conf`, `hyprlock.conf`, `hyprpaper.conf`)  
-- Kitty terminal (`kitty.conf`, `current-theme.conf`)  
-- Wofi Menu launcher (`style.css`)  
-- Waybar status bar (`config`, `style.css`)  
+And yes, I use Arch BTW. 😎
 
-By versioning these in Git, you can reproduce my environment on any machine with one `git clone`.
+This repository contains all my personal configuration files (dotfiles) It’s lightweight, efficient, and perfect for minimalistic setup lovers—or newbies brave enough to dive into the Arch deep end. 
 
 ---
 
+## Features
+
+- **Minimalistic Design:** No bloat, just a clean and simple interface.
+- **Screenshot Feature:** Capture windows or regions effortlessly with `hyprshot`.
+- **Lockscreen:** Secure your system with `hyprlock`, showing the password field only when you type.
+- **Idle Management:** `hypridle` locks your screen after inactivity.
+- **Wallpapers:** `hyprpaper` keeps your desktop looking sharp with custom wallpapers.
+- **Terminal Emulator:** `kitty` delivers a fast, GPU-accelerated terminal experience.
+- **Menu Launcher:** `wofi` offers a lightweight, Wayland-friendly app launcher.
+- **Status Bar:** `waybar` shows system info like time, battery, and network.
+- **Prompt:** `starship` gives you a blazing-fast, customizable shell prompt.
+
+---
 ## Prerequisites
 
-Before installing, ensure you have:
+Before installing, ensure you have the following. Don’t worry, it’s not as scary as it sounds (unless you’re terrified of penguins):
+- **Arch Linux (or derivative):**  
+    You’re on Arch, right? If not, this is your golden ticket to the "I use Arch, BTW" club. Derivatives like Manjaro or EndeavourOS are fine too, but real Arch users might judge you quietly.
 
-* **Arch Linux** (or derivative) with `sudo` privileges 
-* A working **Wayland** session
-* Installed packages:
+- **sudo privileges:**  
+You’ll need to wield root powers. No sudo? Time to set it up—unless you love typing su like it’s 1999.
+- **A working Wayland session:**  
+     Hyprland runs on Wayland, so X11 won’t cut it. Join the future, or at least fake it ‘til you make it.
 
-  ```bash
-  sudo pacman -S hyprland hyprshot hyprlock hypridle hyprpaper swaync waybar kitty wofi starship git
-  ```
-* Optional helpers: AUR helper (`yay`/`paru`) for additional packages like `ttf-comic-neue` ([Medium][2]).
+- **AUR helper (optional):**  
+     An AUR helper like yay or paru is your best friend for fonts and extras. Install one with:
+    ```sh
+    sudo pacman -S yay  # or paru
+    ```
+    It’s like having a butler for the Arch User Repository—who has time to build packages by hand?
+
+Check these off, and you’re golden. Otherwise, there’s always Windows… just kidding, you’ve got this! 😜
 
 ---
 
 ## Installation
 
-1. **Clone the repo**
+### 1. Clone the Repository
 
-   ```bash
-   git clone https://github.com/youruser/anubhabmukherjee2003-my-hyprland-setup.git ~/.config/my-hyprland-setup
-   cd ~/.config/my-hyprland-setup
-   ```
+```sh
+git clone https://github.com/AnubhabMukherjee2003/My-ARCH-hyprland-setup.git ~/.config/my-hyprland-setup
+cd ~/.config/my-hyprland-setup
+```
 
-2. **Symlink configurations**
-   Using GNU Stow (recommended for modular dotfiles) ([Reddit][3]):
+### 2. Install Required Packages
 
-   ```bash
-   sudo pacman -S stow
-   stow --target=$HOME zshrc           # symlinks ~/.bashrc, or ~/.zshrc
-   stow --target=$HOME/config hypr kitty waybar wofi starship
-   ```
+```sh
+sudo pacman -S hyprland hyprshot hyprlock hypridle hyprpaper swaync waybar kitty wofi starship git
+```
 
-   Or manually copy/link the folders under `~/.config/`:
+For AUR fonts:
 
-   ```bash
-   cp .bashrc ~/
-   cp .zshrc ~/
-   cp -r .config/* ~/.config/
-   ```
-3. **Fonts & Icons**
-   Install patched fonts for icons (e.g., **Roboto Mono Nerd Font** or **Comic Neue**):
+```sh
+sudo pacman -S yay  # or paru
+```
 
-   ```bash
-   yay -S ttf-roboto-mono-nerd ttf-comic-neue
-   fc-cache -fv
-   ```
+### 3. Symlink Configurations (using stow)
 
-4. **Reload/Restart**
+```sh
+sudo pacman -S stow
+stow --target=$HOME zshrc
+stow --target=$HOME/.config hypr kitty waybar wofi starship
+```
 
-   * **Hyprland**:
+Or copy manually:
 
-     ```bash
-     hyprctl reload
-     ```
-   * **Waybar**:
+```sh
+cp .bashrc ~/
+cp .zshrc ~/
+cp -r .config/* ~/.config/
+```
 
-     ```bash
-     pkill waybar && waybar &
-     ```
-   * **Starship** will pick up your shell changes on new sessions.
+### 4. Install Fonts
+
+```sh
+yay -S ttf-roboto-mono-nerd ttf-comic-neue
+fc-cache -fv
+```
+
+### 5. Reload and Restart Services
+
+```sh
+hyprctl reload
+pkill waybar && waybar &
+```
+
+`starship` will activate in new shell sessions.
+
+---
+
+## What Each Package Does
+
+- **hyprland:** Dynamic Wayland window manager.
+- **hyprshot:** Screenshot utility for Hyprland.
+- **hyprlock:** Lockscreen tool for Hyprland.
+- **hypridle:** Idle state manager for auto-locking.
+- **hyprpaper:** Wallpaper manager for Hyprland.
+- **swaync:** Notification center for Wayland.
+- **waybar:** Customizable status bar.
+- **kitty:** Fast, GPU-based terminal emulator.
+- **wofi:** Minimalist Wayland launcher/menu.
+- **starship:** Cross-shell, fast, customizable prompt.
+- **git:** Version control for managing dotfiles.
+---
+
+## Where Config Files Go
+
+- **Shell:**  
+  `~/.bashrc` – Bash prompt  
+  `~/.zshrc` – Zsh prompt
+
+- **Starship Prompt:**  
+  `~/.config/starship.toml`
+
+- **Hyprland:**  
+  `~/.config/hypr/hyprland.conf`  
+  `~/.config/hypr/hyprlock.conf`  
+  `~/.config/hypr/hypridle.conf`  
+  `~/.config/hypr/hyprpaper.conf`
+
+- **Kitty:**  
+  `~/.config/kitty/kitty.conf`  
+  `~/.config/kitty/current-theme.conf`
+
+- **Waybar:**  
+  `~/.config/waybar/config`  
+  `~/.config/waybar/style.css`
+
+- **Wofi:**  
+  `~/.config/wofi/style.css`
 
 ---
 
 ## Usage
 
-* **Launchers**
+- **Launcher:**  
+  `Super + d` to open wofi and launch apps.  
+  `waybar` starts automatically.
 
-  * **Wofi**: `Mod + d` (or as bound in Hyprland)
-  * **Waybar**: auto-starts with `exec-once = waybar &` in `hyprland.conf`
+- **Lockscreen:**  
+  `Super + Shift + L` or run `hyprlock`.
 
-* **Lockscreen**
+- **Screenshots:**  
+  `Print` for window shots, `Shift + Print` for regions via hyprshot.
 
-  * Run `hyprlock` manually or via `Mod+Shift+L`.
-  * Unlock with your system password; field only appears when typing.
-
-* **Screensaver & Idle**
-
-  * `hypridle` triggers `hyprlock` after inactivity (configured in `hypridle.conf`).
-
----
-
-## Repository Structure
-
-```text
-anubhabmukherjee2003-my-hyprland-setup/
-├── README.md              ← This file
-├── .bashrc                ← Bash prompt (Starship)
-├── .zshrc                 ← Zsh prompt (Starship)
-└── .config/
-    ├── starship.toml      ← Starship prompt config
-    ├── hypr/
-    │   ├── hyprland.conf
-    │   ├── hyprlock.conf
-    │   ├── hyprpaper.conf
-    │   └── hypridle.conf
-    ├── kitty/
-    │   ├── kitty.conf
-    │   └── current-theme.conf
-    ├── waybar/
-    │   ├── config
-    │   └── style.css
-    └── wofi/
-        └── style.css
-```
+- **Idle:**  
+  `hypridle` locks the screen after 10 minutes (configurable).
 
 ---
 
 ## Customization & Contributing
 
-* Feel free to **fork** and adjust colors, fonts, or keybinds to your taste.
-* To propose changes, submit a **Pull Request**—improvements in documentation and structure are always welcome ([bananamafia.dev][4]).
-* **Do not** commit sensitive data (passwords, API keys). Use placeholders or environment variables.
+Love tweaking? Fork this repo and adjust colors, keybinds, or fonts as you like.  
+Pull Requests are welcome!  
+**Note:** Never commit passwords or API keys—use placeholders.
 
 ---
 
+## Troubleshooting & References
+
+- [Arch Wiki](https://wiki.archlinux.org/)
+- [Hyprland Wiki](https://wiki.hyprland.org/)
+- [Waybar GitHub](https://github.com/Alexays/Waybar)
+
+Still stuck? Open an issue here.  
+Enjoy your minimal Arch + Hyprland setup!  
+If it breaks, you get to keep both pieces—and brag about using Arch. 😜
