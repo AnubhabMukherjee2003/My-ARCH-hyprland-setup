@@ -11,7 +11,9 @@ This repository contains all my personal configuration files (dotfiles) It’s l
 ## Features
 
 - **Minimalistic Design:** No bloat, just a clean and simple interface.
-- **Wallpapers:** `hyprpaper` keeps your desktop looking sharp with custom wallpapers.
+- **Wallpapers:** `hyprpaper` keeps your desktop looking sharp with custom wallpapers.  
+  Check out a quick walkthrough of the setup:  
+  [![Setup Tour](pictures/homeScreen.png)](tour.mp4)
 ![Home Screen](pictures/homeScreen.png)
 - **Terminal Emulator:** `kitty` delivers a fast, GPU-accelerated terminal experience.
 - **Prompt:** `starship` gives you a blazing-fast, customizable shell prompt.
