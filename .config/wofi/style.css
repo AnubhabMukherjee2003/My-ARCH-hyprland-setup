@@ -1,4 +1,4 @@
-cko/* Define Colors */
+/* Define Colors */
 @define-color background #1f242d;
 @define-color text #02f0f0;
 @define-color accent #000000;
@@ -82,4 +82,3 @@ window {
   border: none;
   color: @arrow;
 }
-

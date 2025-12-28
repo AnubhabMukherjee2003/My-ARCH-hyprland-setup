@@ -5,7 +5,7 @@
 
 # Main prompt format
 format = """
-[](surface0)\
+[](white)\
 $os\
 $username\
 [](bg:white fg:surface0)\
@@ -51,7 +51,7 @@ text      = "#ffffff"
 # OS module
 [os]
 disabled = false
-style = "bg:surface0 fg:text"
+style = "bg:white fg:mantle"
 
 [os.symbols]
 Windows = "󰍲"
@@ -65,8 +65,8 @@ Debian = "󰣚"
 # Username module
 [username]
 show_always = true
-style_user = "bg:surface0 fg:text"
-style_root = "bg:surface0 fg:text"
+style_user = "bg:white fg:mantle"
+style_root = "bg:white fg:mantle"
 format = '[ $user ]($style)'
 
 # Directory module

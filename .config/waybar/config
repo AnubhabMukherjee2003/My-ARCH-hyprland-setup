@@ -2,7 +2,7 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 6, // Waybar height (to be removed for auto height)
+    "height": 2, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
 
     "modules-left": ["hyprland/workspaces"],
@@ -27,7 +27,7 @@
     "pulseaudio": {
         "format": "   {volume}%",
         "tooltip": "Audio Volume: {volume}%",
-        "on-click": "pavucontrol"
+        // "on-click": "pavucontrol"
     },
     "backlight": {
         "format": "  {percent}%"
